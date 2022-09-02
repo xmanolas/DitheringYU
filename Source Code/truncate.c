@@ -46,13 +46,13 @@ int main (int argc, char *argv[])   /*main function*/
 		
 	printf("\nEnter Truncated Bits Number: ");
 	scanf("%d", &TRUNC_LENGTH);
-            
+
 	do
-    {   
-    	readcount = sf_read_short (infile, data, BUFFER_LEN);/*read 1024 shorts from the infile to the buffer*/
-    	process_data (data, readcount);                      /*call the process function and pass the data and amount of data*/
-    	sf_write_short (outfile, data, readcount);           /*write the modified data to the outfile*/
-    } while (readcount > 0);                              /*check that we have data to work with before repeating*/
+	{   
+		readcount = sf_read_short (infile, data, BUFFER_LEN);/*read 1024 shorts from the infile to the buffer*/
+		process_data (data, readcount);                      /*call the process function and pass the data and amount of data*/
+		sf_write_short (outfile, data, readcount);           /*write the modified data to the outfile*/
+	} while (readcount > 0);                              /*check that we have data to work with before repeating*/
 
 	sf_close (infile); /*close files*/
 	sf_close (outfile);/*close files*/

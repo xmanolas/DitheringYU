@@ -15,12 +15,12 @@ static void add_GPDF (short *data, int count);
 
 int main (int argc, char *argv[])   /*main function*/
 {   
-static short    data [BUFFER_LEN];      /*audio buffer*/
-SNDFILE         *infile, *outfile;      /*pointers to file names*/
-SF_INFO		    sfinfo;                 /*structure to hold soundfile info*/
-int			    readcount;              /*counter variable*/
-const char	    *infilename = argv[1];  /*command line arguments - file to be processed*/
-const char	    *outfilename = argv[2]; /*command line arguments - output file*/
+	static short    data [BUFFER_LEN];      /*audio buffer*/
+	SNDFILE         *infile, *outfile;      /*pointers to file names*/
+	SF_INFO		    sfinfo;                 /*structure to hold soundfile info*/
+	int			    readcount;              /*counter variable*/
+	const char	    *infilename = argv[1];  /*command line arguments - file to be processed*/
+	const char	    *outfilename = argv[2]; /*command line arguments - output file*/
 
    
     if(argc!=3) /*check for correct arguments*/
@@ -29,7 +29,7 @@ const char	    *outfilename = argv[2]; /*command line arguments - output file*/
 		return 1;
 	}	
 
-infile = sf_open (infilename, SFM_READ, &sfinfo); /*open infile and check for errors*/ 
+	infile = sf_open (infilename, SFM_READ, &sfinfo); /*open infile and check for errors*/ 
 	
     if (infile <= 0)
 	{
@@ -38,7 +38,7 @@ infile = sf_open (infilename, SFM_READ, &sfinfo); /*open infile and check for er
 	}
 
 
-outfile = sf_open (outfilename, SFM_WRITE, &sfinfo); /*open infile and check for errors*/
+	outfile = sf_open (outfilename, SFM_WRITE, &sfinfo); /*open infile and check for errors*/
 	
 	if (outfile <=0)
     {   
@@ -46,23 +46,23 @@ outfile = sf_open (outfilename, SFM_WRITE, &sfinfo); /*open infile and check for
         return  1;
     }
 
-/*Process Loop*/
+	/*Process Loop*/
 		
-printf("\nEnter Truncated Bits Number: ");
-scanf("%d", &TRUNC_LENGTH);
-printf("\nEnter Noise Amplitude (in bits): ");
-scanf("%d", &Q);
+	printf("\nEnter Truncated Bits Number: ");
+	scanf("%d", &TRUNC_LENGTH);
+	printf("\nEnter Noise Amplitude (in bits): ");
+	scanf("%d", &Q);
             
-			do
-    	    {   
-    			readcount = sf_read_short (infile, data, BUFFER_LEN);/*read 1024 shorts from the infile to the buffer*/
-    			add_RPDF (data, readcount);                      /*call the process function and pass the data and amount of data*/
-    			sf_write_short (outfile, data, readcount);           /*write the modified data to the outfile*/
-    	    } while (readcount > 0);                              /*check that we have data to work with before repeating*/
+	do
+	{   
+		readcount = sf_read_short (infile, data, BUFFER_LEN);/*read 1024 shorts from the infile to the buffer*/
+		add_RPDF (data, readcount);                      /*call the process function and pass the data and amount of data*/
+		sf_write_short (outfile, data, readcount);           /*write the modified data to the outfile*/
+	} while (readcount > 0);                              /*check that we have data to work with before repeating*/
 
-sf_close (infile); /*close files*/
-sf_close (outfile);/*close files*/
-return 0;
+	sf_close (infile); /*close files*/
+	sf_close (outfile);/*close files*/
+	return 0;
 }
 
 static void process_data (short *data, int count)
