@@ -67,7 +67,7 @@ int main (int argc, char *argv[])   /*main function*/
 
 static void process_data (short *data, int count)
 {	
-int k, chan; /*some counters*/
+	int k, chan; /*some counters*/
 
     for (chan = 0; chan < CHANNELS ; chan ++)       /*for the number of channels*/
 	{ 
@@ -79,13 +79,13 @@ int k, chan; /*some counters*/
 		
 		}
 	}
-return;
+	return;
 }
 
 
 static void add_RPDF (short *data, int count)
 {	
-int k, chan, ra; /*some counters*/
+	int k, chan, ra; /*some counters*/
 
     for (chan = 0; chan < CHANNELS ; chan ++)       /*for the number of channels*/
 	{ 
@@ -98,13 +98,13 @@ int k, chan, ra; /*some counters*/
 
 		}
 	}
-return;
+	return;
 }
 
 
 static void add_TPDF (short *data, int count)
 {	
-int k, chan; /*some counters*/
+	int k, chan; /*some counters*/
 
     for (chan = 0; chan < CHANNELS ; chan ++)       /*for the number of channels*/
 	{ 
@@ -117,12 +117,12 @@ int k, chan; /*some counters*/
 
 		}
 	}
-return;
+	return;
 }
 
 static void add_GPDF (short *data, int count)
 {	
-int k, chan, sum; /*some counters*/
+	int k, chan, sum; /*some counters*/
 
     for (chan = 0; chan < CHANNELS ; chan ++)       /*for the number of channels*/
 	{ 
@@ -136,5 +136,5 @@ int k, chan, sum; /*some counters*/
 
 		}
 	}
-return;
+	return;
 }

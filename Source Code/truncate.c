@@ -62,7 +62,7 @@ int main (int argc, char *argv[])   /*main function*/
 
 static void process_data (short *data, int count)
 {	
-int k, chan; /*some counters*/
+	int k, chan; /*some counters*/
 
     for (chan = 0; chan < CHANNELS ; chan ++)       /*for the number of channels*/
 	{ 
@@ -72,6 +72,6 @@ int k, chan; /*some counters*/
 			data[k] = data[k]<<TRUNC_LENGTH;
 		}
 	}
-return;
+	return;
 }
 

@@ -69,7 +69,7 @@ int main (int argc, char *argv[])   /*main function*/
 
 static void add_GPDF4 (short *data, int count)
 {	
-int k, chan, sum, i; /*some counters and a variable (sum) which will carry the rpdf functions summation*/
+	int k, chan, sum, i; /*some counters and a variable (sum) which will carry the rpdf functions summation*/
 
     for (chan = 0; chan < CHANNELS ; chan ++)       /*for the number of channels*/
 	{ 
@@ -82,5 +82,5 @@ int k, chan, sum, i; /*some counters and a variable (sum) which will carry the r
 			data[k] = data[k]<<TRUNC_LENGTH;
 		}
 	}
-return;
+	return;
 }
