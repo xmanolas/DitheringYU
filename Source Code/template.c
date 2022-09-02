@@ -25,8 +25,8 @@ const char	    *outfilename = argv[2]; /*command line arguments - output file*/
    
     if(argc!=3) /*check for correct arguments*/
 	{
-	printf("Usage:template infile outfile\n");
-	return 1;
+		printf("Usage:template infile outfile\n");
+		return 1;
 	}	
 
 infile = sf_open (infilename, SFM_READ, &sfinfo); /*open infile and check for errors*/ 
@@ -58,7 +58,7 @@ scanf("%d", &Q);
     			readcount = sf_read_short (infile, data, BUFFER_LEN);/*read 1024 shorts from the infile to the buffer*/
     			add_RPDF (data, readcount);                      /*call the process function and pass the data and amount of data*/
     			sf_write_short (outfile, data, readcount);           /*write the modified data to the outfile*/
-    	    }while (readcount > 0);                              /*check that we have data to work with before repeating*/
+    	    } while (readcount > 0);                              /*check that we have data to work with before repeating*/
 
 sf_close (infile); /*close files*/
 sf_close (outfile);/*close files*/
@@ -91,7 +91,6 @@ int k, chan, ra; /*some counters*/
 	{ 
 		for (k = chan; k < count ; k+= CHANNELS)    /*modify every sample in the buffer for that channel*/
 		{
-		
 		
 			data[k] = data[k] + rand()%Q;
 			data[k] = data[k]>>TRUNC_LENGTH;
