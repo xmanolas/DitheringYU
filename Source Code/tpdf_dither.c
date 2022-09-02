@@ -53,11 +53,11 @@ int main (int argc, char *argv[])   /*main function*/
 	scanf("%d", &Q);
             
 	do
-    {   
-    	readcount = sf_read_short (infile, data, BUFFER_LEN);/*read 1024 shorts from the infile to the buffer*/
+	{   
+		readcount = sf_read_short (infile, data, BUFFER_LEN);/*read 1024 shorts from the infile to the buffer*/
     	add_TPDF (data, readcount);                      /*call the process function and pass the data and amount of data*/
     	sf_write_short (outfile, data, readcount);           /*write the modified data to the outfile*/
-    }while (readcount > 0);                              /*check that we have data to work with before repeating*/
+	}while (readcount > 0);                              /*check that we have data to work with before repeating*/
 
 	sf_close (infile); /*close files*/
 	sf_close (outfile);/*close files*/
